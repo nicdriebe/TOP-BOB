@@ -5,11 +5,13 @@ import TheWelcome from './components/TheWelcome.vue'
 
 <template>
   <header>
+    <h1>Barriere-Check-Berlin</h1>
+    <h4>wie barrierfrei ist </h4>
    
   </header>
 
   <main>
-    <h1>Hello</h1>
+    <h1>Hello Ihr</h1>
   </main>
 </template>
 
