@@ -12,11 +12,11 @@ import { BButton } from 'bootstrap-vue-3';
 <hr>
 <nav class="navbar" aria-label="Hauptmenü">
   <div id="Hauptmenue">
-    <router-link class="navbar-brand" to="/" aria-label="Zur Startseite">Home</router-link>
-    <router-link class="navbar-brand" to="/kultur_und_pass" aria-label="Seite Kultur & Spaß">Kultur & Spaß</router-link>
-    <router-link class="navbar-brand" to="/essen_und_trinken" aria-label="Seite Essen & Trinken">Essen & Trinken</router-link>
-    <router-link class="navbar-brand" to="/was_ist_top_bob" aria-label="Seite Was ist TOP-BOB?">Was ist TOP-BOB?</router-link>
-    <router-link class="navbar-brand" to="/kontakt" aria-label="Zur Kontaktseite">Kontakt</router-link>
+    <router-link class="navbar-brand" to="/" aria-label="Zur Startseite" tabindex="0">Home</router-link>
+    <router-link class="navbar-brand" to="/kultur_und_spass" aria-label="Seite Kultur & Spaß" tabindex="0">Kultur & Spaß</router-link>
+    <router-link class="navbar-brand" to="/essen_und_trinken" aria-label="Seite Essen & Trinken" tabindex="0">Essen & Trinken</router-link>
+    <router-link class="navbar-brand" to="/about" aria-label="Seite Was ist TOP-BOB?" tabindex="0">Was ist TOP-BOB?</router-link>
+    <router-link class="navbar-brand" to="/kontakt" aria-label="Zur Kontaktseite" tabindex="0">Kontakt</router-link>
   </div>
 </nav>
   
@@ -144,6 +144,7 @@ width: 100%;
   text-align: center;
   position: fixed;
     bottom: 0;
+    background-color: white;
 }
 
 
@@ -152,6 +153,7 @@ width: 100%;
   font-size: large;
   text-decoration: none ;
   color: #595959;
+  
 }
 
 </style>
