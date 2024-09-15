@@ -13,9 +13,9 @@ import { BButton } from 'bootstrap-vue-3';
 <nav class="navbar" aria-label="Hauptmenü">
   <div id="Hauptmenue">
     <router-link class="navbar-brand" to="/" aria-label="Zur Startseite">Home</router-link>
-    <router-link class="navbar-brand" to="/kultur-und-spass" aria-label="Seite Kultur & Spaß">Kultur & Spaß</router-link>
-    <router-link class="navbar-brand" to="/essen-und-trinken" aria-label="Seite Essen & Trinken">Essen & Trinken</router-link>
-    <router-link class="navbar-brand" to="/was-ist-top-bob" aria-label="Seite Was ist TOP-BOB?">Was ist TOP-BOB?</router-link>
+    <router-link class="navbar-brand" to="/kultur_und_pass" aria-label="Seite Kultur & Spaß">Kultur & Spaß</router-link>
+    <router-link class="navbar-brand" to="/essen_und_trinken" aria-label="Seite Essen & Trinken">Essen & Trinken</router-link>
+    <router-link class="navbar-brand" to="/was_ist_top_bob" aria-label="Seite Was ist TOP-BOB?">Was ist TOP-BOB?</router-link>
     <router-link class="navbar-brand" to="/kontakt" aria-label="Zur Kontaktseite">Kontakt</router-link>
   </div>
 </nav>
@@ -131,7 +131,11 @@ nav {
   /*background-color: #89c5a8!important;*/
 }
 
-
+.navbar-brand:focus,
+.footer-link:focus {
+  outline: 3px solid #295338; /* Schwarzer Rahmen bei Tab-Fokus */
+  outline-offset: 2px; /* Optional: Platz zwischen dem Rahmen und dem Inhalt */
+}
 
 footer {
 margin-top: 20px;
