@@ -1,6 +1,12 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+// Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Optional: Import Bootstrap JavaScript (falls du Bootstrap JS-Komponenten benötigst)
+import 'bootstrap';
+
+const app = createApp(App);
+app.mount('#app');

@@ -1,5 +1,14 @@
 @import './base.css';
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Optional: Abstand oben und unten */
+}
+
+/*
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -32,4 +41,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+}*/
