@@ -14,7 +14,7 @@
 
         <section id="was-ist-das">
             <h2>Was ist das?</h2>
-            <p>TOP-BOB steht für <strong>TOP</strong>- <strong>b</strong>arierefreie <strong>O</strong>rte <strong>B</strong>erlins. 
+            <p>TOP-BOB steht für <strong>TOP</strong>- <strong>b</strong>arrierefreie <strong>O</strong>rte <strong>B</strong>erlins. 
                 Es ist eine Plattform, die Menschen hilft, barrierefreie Orte in Berlin zu finden. 
                 Unsere Community teilt Empfehlungen für Orte, die für alle zugänglich sind – 
                 ob Cafés, Restaurants, Kinos oder Parks. Zwar geben viele, zum Beispiel öffentlichen Einrichtungen, an barrierefrei zu sein, aber was bedeutet das genau?
@@ -40,3 +40,9 @@
         </section>
     </div>
 </template>
+
+<style scoped>
+.content-container {
+  padding-bottom: 150px; 
+}
+</style>

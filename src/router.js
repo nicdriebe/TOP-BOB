@@ -13,27 +13,42 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'Startseite mit kurzer Beschreibung der Website TOP-BOB'
+      }
     },
     {
       path: '/kultur_und_spass',
       name: 'KulturUndSpass',
-      component: KulturUndSpass
+      component: KulturUndSpass,
+      meta: {
+        title: 'Kultur und Spaß - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie - TOP-BOB'
+      }
     },
     {
       path: '/essen_und_trinken',
       name: 'EssenUndTrinken',
-      component: EssenUndTrinken
+      component: EssenUndTrinken,
+      meta: {
+        title: 'Essen und Trinken - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie - TOP-BOB'
+      }
     },
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: About,
+      meta: {
+        title: 'Über TOP-BOB - Was ist das - Geschichte - Mitmachen bei TOP-BOB'
+      }
     },
     {
       path: '/kontakt',
       name: 'Kontakt',
-      component: Kontakt
+      component: Kontakt,
+      meta: {
+        title: 'Kontaktformular - TOP-BOB'
+      }
     }
   ]
 });

@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <div class="content-container">
       <h1>Kultur und Spaß</h1>
-      <p>Hier finden Sie Informationen über Kultur und Spaß in Berlin.</p>
+      <p>In welchem Schwimmbad, Museum oder Club macht es wirklich Spaß und wird man nicht behindert?<br>
+        Finde Orte, an denen andere gute Erfahrungen gemacht haben oder empfehle selbst etwas.</p>
     </div>
   </template>
   
