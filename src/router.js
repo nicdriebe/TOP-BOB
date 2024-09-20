@@ -23,7 +23,7 @@ const router = createRouter({
       name: 'KulturUndSpass',
       component: KulturUndSpass,
       meta: {
-        title: 'Kultur und Spaß - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie - TOP-BOB'
+        title: 'Kultur und Spaß - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie und der Möglichekit selbst Orte hinzuzufügen - TOP-BOB'
       }
     },
     {
@@ -31,7 +31,7 @@ const router = createRouter({
       name: 'EssenUndTrinken',
       component: EssenUndTrinken,
       meta: {
-        title: 'Essen und Trinken - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie - TOP-BOB'
+        title: 'Essen und Trinken - Übersicht über die besten barrierefreien Orte in Berlin in dieser Kategorie und der Möglichekit selbst Orte hinzuzufügen- TOP-BOB'
       }
     },
     {
