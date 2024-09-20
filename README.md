@@ -27,7 +27,13 @@ Das Frontend ist bereits zu großen Teilen implementiert ist. Zukünftig sollen 
 
 ## Umsetzung der Kriterien zur Barrierefreiheit
 
-**1. Verwenden von Semantischem  Markup**  
+**1. Verwenden von Semantischem  Markup** 
+Um Zugänglichkeit für Screenreader und andere assistive Technologien auf die Anwendung zu gewährleisten, ist Verwendung semantischen HTMLs wichtig.
+
+- semantische HTML-Elemente wie <header>, <nav>, <main>, <section>, <form> und <footer> wurden verwendet, um die Struktur der Seite klar zu definieren und den Inhalt sinnvoll zu gliedern.
+- Überschriften wurden die <h1> bis <h6>-Elemente in der richtigen Hierarchie eingesetzt, um die Struktur der Inhalte deutlich zu machen.
+- Formular-Elemente sind korrekt mit <label>-Tags verknüpft, um sicherzustellen, dass Screenreader die Formulareingabefelder korrekt vorlesen können.
+  Es wurden aria-label- und aria-describedby-Attribute verwendet, um zusätzlichen Kontext bereitzustellen, falls nötig
 
 **2. Projekt über Tastatur bedienbar**  
 
