@@ -7,10 +7,10 @@ User können eigene Empfehlungen eintragen oder vorhandene Einträge kommentiere
 Das Projetkt ist im Rahmen des Moduls Barierefreie Webentwicklung im Studiengang Informatik und Wirtschaft an der HTW Berlin entstanden.  
 Folgendes sollte umgesetzt werden:
 - Verwenden von Semantischem  Markup
-- Projekt ist über die Tastatur bedienbar
-- Sprache im Dokument ist angegeben.
-- Fokus-ring ist bei jedem Element sichtbar
-- Skip-link ist Vorhanden, um Bereiche zu überspringen   
+- Projekt über Tastatur bedienbar
+- Sprache im Dokument angegeben.
+- Fokus-ring bei jedem Element sichtbar
+- Skip-link vorhanden, um Bereiche zu überspringen   
 
 Zudem sollten 6 selbst gewählte Kriterien aus dem Web Content Accessibility Guidelines (WCAG) 2.2. umgesetzt werden.
 Folgende Kriterien sind ausgewählt worden:
