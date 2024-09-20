@@ -22,7 +22,8 @@ selbstgewählte Kriterien:
 - 2.5.5 Target Size
 - 3.3.3 Error Suggestion  
 
-Derzeit befindet sich das Projekt in der Entwicklungsphase. Das Frontend ist bereits zu großen Teilen implementiert ist. Zukünftig sollen ein Backend und eine Datenbank integriert werden, um die Anwendung vollständig zu machen.
+**Derzeit befindet sich das Projekt in der Entwicklungsphase und ist nocht nicht abgeschlossen.**   
+Das Frontend ist bereits zu großen Teilen implementiert ist. Zukünftig sollen ein Backend und eine Datenbank integriert werden, um die Anwendung vollständig zu machen.
 
 ## Umsetzung der Kriterien zur Barrierefreiheit
 
