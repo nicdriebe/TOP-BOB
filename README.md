@@ -112,7 +112,7 @@ Die Web Content Accessibility Guidelines (WCAG) empfehlen, dass interaktive Elem
 
  - die Mindestgröße 44px x 44px ist für alle interaktien Elemente eingehalten worden, insbesondere auch bei der Bewertung einzelner Orte durch das Anklicken von Sternen:
 
- <img src="images/sternebewertung.png" alt="Sternebewertung" width="400"/>
+ <img src="images/sternebewertung.png" alt="Sternebewertung" width="600"/>
 
 #### **3.3.3 Error Suggestion**  
 
