@@ -1,7 +1,7 @@
 <template>
     <div class="content-container">
       <h1>Willkommen bei TOP-BOB</h1>
-      <h2>Das Plattform für die besten barrierefreien Orte in Berlin!</h2>
+      <h2>Die Plattform für die besten barrierefreien Orte in Berlin!</h2>
       <p>
         Hier findest du Empfehlungen von anderen Usern für Orte, 
         die barrierefrei zugänglich sind – egal ob Cafés, Restaurants, Kinos oder Parks. 
