@@ -27,21 +27,47 @@ Das Frontend ist bereits zu großen Teilen implementiert ist. Zukünftig sollen 
 
 ## Umsetzung der Kriterien zur Barrierefreiheit
 
-**1. Verwenden von Semantischem  Markup** 
-Um Zugänglichkeit für Screenreader und andere assistive Technologien auf die Anwendung zu gewährleisten, ist Verwendung semantischen HTMLs wichtig.
+**1. Verwenden von Semantischem  Markup**   
 
-- semantische HTML-Elemente wie <header>, <nav>, <main>, <section>, <form> und <footer> wurden verwendet, um die Struktur der Seite klar zu definieren und den Inhalt sinnvoll zu gliedern.
-- Überschriften wurden die <h1> bis <h6>-Elemente in der richtigen Hierarchie eingesetzt, um die Struktur der Inhalte deutlich zu machen.
-- Formular-Elemente sind korrekt mit <label>-Tags verknüpft, um sicherzustellen, dass Screenreader die Formulareingabefelder korrekt vorlesen können.
+Um Zugänglichkeit für Screenreader und andere assistive Technologien auf die Anwendung zu gewährleisten, ist Verwendung semantischen HTMLs wichtig.
+- semantische HTML-Elemente wie `<header>`,  `<nav>`, `<main>`, `<section>`, `<form>` und `<footer>` wurden verwendet, um die Struktur der Seite klar zu definieren und den Inhalt sinnvoll zu gliedern.
+- Überschriften  (`<h1>` - `<h6>`) wurden in der richtigen Hierarchie eingesetzt, um die Struktur der Inhalte deutlich zu machen.
+- Formular-Elemente sind korrekt mit `<label>`-Tags verknüpft, um sicherzustellen, dass Screenreader die Formulareingabefelder korrekt vorlesen können.
   Es wurden aria-label- und aria-describedby-Attribute verwendet, um zusätzlichen Kontext bereitzustellen, falls nötig
 
-**2. Projekt über Tastatur bedienbar**  
+**2. Projekt über Tastatur bedienbar**    
+
+Logische Tab-Reihenfolge:
+
+- Alle interaktiven Elemente (Formulare, Links, Buttons) sind in einer logischen Reihenfolge über die Tabulatortaste erreichbar. Dies ermöglicht eine intuitive Navigation durch die Benutzeroberfläche.
+
+**---> Die Navigation mit der Tastatur, insbesondere bei den Formularen, funktioniert bisher noch nicht einwandfrei und muss noch verbessert werden**
 
 **3. Sprache im Dokument angegeben**  
 
+Screenreader nutzen die Spracheinstellungen, um den Text korrekt auszusprechen. Wenn die Sprache nicht angegeben ist, kann der Screenreader Schwierigkeiten haben, die Inhalte richtig zu interpretieren, was zu Missverständnissen führt.
+
+- die Spracheinstellung wurde in der index.html vorgenommen : `<html lang="de">`
+
 **4. Fokus-ring bei jedem Element sichtbar**  
 
+Ein Fokus-Ring hilft Menschen mit Sehbehinderungen oder solchen, die auf die Tastatur angewiesen sind, sich auf der Seite zurechtzufinden.
+
+- Fokus-Ring wurde gesetzt und in einem einheitlichen (Design)Stil angelegt, um Verwirrung zu vermeiden.
+  
+  main.css: 
+`:focus {
+  outline: 3px solid #295338; 
+  outline-offset: 2px; 
+}`
+
 **5. Skip-link vorhanden, um Bereiche zu überspringen**  
+
+Skip-Links ermöglichen es Nutzern von Screenreadern und Tastaturbenutzern, direkt zum Hauptinhalt der Seite zu springen, ohne durch alle Navigationslinks oder andere wiederholte Inhalte scrollen zu müssen.
+
+ - Skip-Link wurde in App.vue gesetzt:   
+  `<a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>`
+
 
 **1.1.1 Non-text Content**
 
@@ -73,7 +99,7 @@ folgenden Software-Komponenten müssen vorab installiert werden:
 
 1. Repository clonen
 ```sh
-git clone https://gitlab.com/username/barriere-check-berlin.git
+git clone https://gitlab.rz.htw-berlin.de/Nicole.Driebe/barriere-check-berlin.git
 ```
 2. zum Projektverzeichnis wechseln:
 ```sh
