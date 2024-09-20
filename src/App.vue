@@ -1,5 +1,5 @@
 <script setup>
-import { BButton } from 'bootstrap-vue-3';
+import { BButton } from 'bootstrap-vue-next';
 import { ref } from 'vue';
 
 // Standard-Schriftgröße 100 %

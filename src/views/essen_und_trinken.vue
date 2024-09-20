@@ -1,23 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import { places as initialPlaces } from '../data/places.js';
+import NewPlaceForm from '../components/NewPlaceForm.vue';
 
 // Datenmodell für Orte
 const places = ref(initialPlaces);
 
-// Neues Place-Objekt
-const newPlace = ref({
-  name: '',
-  type: '',
-  district: '',
-  address: '',
-  description: '',
-  stars: 1
-});
-
 // Zustand für das Anzeigen des Formulars und der Fehlermeldung
 const isFormVisible = ref(false);
-const errorMessage = ref('');
 
 // Funktion zum Umschalten der Sichtbarkeit des Formulars
 const toggleForm = () => {
@@ -25,35 +15,18 @@ const toggleForm = () => {
 };
 
 // Funktion zum Hinzufügen eines neuen Ortes
-const addPlace = () => {
-  // Überprüfen, ob alle Felder ausgefüllt sind
-  if (!newPlace.value.name || !newPlace.value.type || !newPlace.value.district || 
-      !newPlace.value.address || !newPlace.value.description || !newPlace.value.stars) {
-    errorMessage.value = 'Bitte fülle alle Felder aus.';
-    return;
-  }
-
-  const place = { ...newPlace.value, id: places.value.length + 1, comments: [], isOpen: false };
+const handleNewPlace = (newPlace) => {
+  console.log('Neuer Ort eingetragen:', newPlace);
+  const place = { ...newPlace, id: places.value.length + 1, comments: [], isOpen: false };
   places.value.push(place);
-  
-  // Felder zurücksetzen
-  newPlace.value = {
-    name: '',
-    type: '',
-    district: '',
-    address: '',
-    description: '',
-    stars: 1
-  };
 
-  // Formular nach dem Hinzufügen zurücksetzen
+  // Formular nach dem Hinzufügen verbergen
   isFormVisible.value = false;
-  errorMessage.value = ''; // Fehlermeldung zurücksetzen
 };
 
-// Funktion zum Löschen der Fehlermeldung
-const clearError = () => {
-  errorMessage.value = '';
+// Funktion zum Aufklappen/Schließen der Details
+const toggleDetails = (place) => {
+  place.isOpen = !place.isOpen;
 };
 
 // Funktion zum Hinzufügen eines Kommentars
@@ -68,140 +41,64 @@ const addComment = (place) => {
 const addRating = (place, stars) => {
   place.stars = stars; // Direkt die Sterne aktualisieren
 };
-
-// Funktion zum Aufklappen/Schließen der Details
-const toggleDetails = (place) => {
-  place.isOpen = !place.isOpen;
-};
 </script>
-
-
-
 
 
 
 <template>
   <div class="content-container">
-    <h1 tabindex="0">Essen und Trinken</h1>
-    <p tabindex="0">
+    <h1>Essen und Trinken</h1>
+    <p>
       Finde die besten barrierefreien Restaurants, Bars und Cafés in Berlin.<br />
       Trage selbst Orte ein, die du toll findest und weiterempfehlen möchtest.
     </p>
 
-    <button @click="toggleForm" 
-            :aria-expanded="isFormVisible" 
-            aria-controls="new-place-form" 
-            aria-label="Neuen Ort eintragen">
-      {{ isFormVisible ? 'Formular verbergen' : 'Neuen Ort eintragen' }}
+    <!-- Zeile für die Übersicht und den Button -->
+    <div class="header-row">
+    <p><strong>Übersicht empfohlener Lokale</strong></p>
+    <!-- Button zum Umschalten der Formularanzeige, rechts ausgerichtet -->
+    <button @click="toggleForm" :aria-expanded="isFormVisible" aria-controls="new-place-form">
+      {{ isFormVisible ? 'Formular schließen' : 'Neuen Ort eintragen' }}
     </button>
-
-    <div v-if="isFormVisible" id="new-place-form">
-      <h2 tabindex="0">Neuen Ort eintragen</h2>
-
-      <!-- Fehlermeldung -->
-      <div v-if="errorMessage" 
-           class="error-message" 
-           role="alert" 
-           tabindex="0" 
-           @click="clearError">
-        {{ errorMessage }}
-      </div>
-
-      <form @submit.prevent="addPlace">
-        <div>
-          <label for="name">Name des Ortes:</label>
-          <input v-model="newPlace.name" id="name" required />
-        </div>
-
-        <div>
-          <label for="type">Art des Lokals:</label>
-          <select v-model="newPlace.type" id="type" required>
-            <option disabled value="">Bitte auswählen</option>
-            <option>Restaurant</option>
-            <option>Bar</option>
-            <option>Cafe</option>
-            <option>Imbiss</option>
-            <option>Bistro</option>
-            <option>Biergarten</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="district">Bezirk:</label>
-          <input v-model="newPlace.district" id="district" required />
-        </div>
-
-        <div>
-          <label for="address">Genaue Adresse:</label>
-          <input v-model="newPlace.address" id="address" required />
-        </div>
-
-        <div>
-          <label for="description">Warum gutes Lokal:</label>
-          <textarea v-model="newPlace.description" id="description" required></textarea>
-        </div>
-
-        <div>
-          <label for="stars">Sternebewertung (1-5):</label>
-          <select v-model="newPlace.stars" id="stars" required>
-            <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-          </select>
-        </div>
-
-        <button type="submit">Ort hinzufügen</button>
-      </form>
     </div>
 
-    <h6 tabindex="0">Übersicht empfohlener Lokale</h6>
+    <!-- Aufruf der NewPlaceForm-Komponente -->
+    <NewPlaceForm v-if="isFormVisible" @submit="handleNewPlace" />
+
 
     <div v-for="place in places" :key="place.id" class="place">
       <div class="place-header">
-        <h5><strong>{{ place.name }}</strong></h5>
+        <h5 ><strong>{{ place.name }}</strong></h5>
         <span>{{ place.type }}</span> | 
-        <span>{{ place.district }}</span> | 
-        <span>
+        <span >{{ place.district }}</span> | 
+        <span >
           <span v-for="star in 5" :key="star" class="star" :class="{ filled: star <= place.stars }">★</span>
         </span>
-        <button @click="toggleDetails(place)" 
-                :aria-expanded="place.isOpen" 
-                aria-controls="place-details-{{ place.id }}" 
-                aria-label="Details {{ place.isOpen ? 'verbergen' : 'anzeigen' }}">
-          <span class="material-icons">
-            {{ place.isOpen ? 'expand_less' : 'expand_more' }}
-          </span>
+        <button @click="toggleDetails(place)" :aria-expanded="place.isOpen" aria-controls="place-details-{{ place.id }}">
+          <span class="material-icons">{{ place.isOpen ? 'expand_less' : 'expand_more' }}</span>
         </button>
       </div>
 
       <div v-if="place.isOpen" :id="'place-details-' + place.id" class="details">
         <p tabindex="0"><strong>Adresse:</strong> {{ place.address }}</p>
-        <p tabindex="0"><strong>Dieser Ort ist toll, weil:</strong> {{ place.description }}</p>
+        <p tabindex="0"><strong>Warum dieser Ort toll ist:</strong> {{ place.description }}</p>
 
         <ul role="list">
           <li v-for="comment in place.comments" :key="comment">{{ comment }}</li>
         </ul>
 
         <hr id="comment-line">
-        <p><strong>Kennst du diesen Ort? Schreibe deine Erfahrungen. Sie können wertvoll sein für andere.</strong></p>
-        
-        <textarea v-model="place.newComment" class="comment-textarea" placeholder="Schreiben Sie einen Kommentar"></textarea>
+        <p><strong>Hast du diesen Ort besucht? Teile deine Erfahrungen.</strong></p>
+
+        <textarea v-model="place.newComment" class="comment-textarea" placeholder="Kommentar schreiben"></textarea>
         <button class="comment-button" @click="addComment(place)">Kommentar hinzufügen</button>
 
         <div class="star-rating">
-          <p><strong>Hast du einen Kommentar geschrieben? Gib gern deine Sternebewertung ab!</strong></p>
+          <p><strong>Bewerte den Ort:</strong></p>
           <div class="rating-container">
             <label for="stars">Bewertung:</label>
             <div class="stars">
-              <span 
-                v-for="star in 5" 
-                :key="star" 
-                class="star" 
-                @click="addRating(place, star)" 
-                :class="{ filled: star <= place.stars }" 
-                role="button" 
-                tabindex="0" 
-                aria-label="Bewertung {{ star }} von 5">
-                ★
-              </span>
+              <span v-for="star in 5" :key="star" class="star" @click="addRating(place, star)" :class="{ filled: star <= place.stars }">★</span>
             </div>
           </div>
         </div>
@@ -213,15 +110,44 @@ const toggleDetails = (place) => {
 
 
 
+
+
 <style scoped>
+
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Button und Text vertikal zentrieren */
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.header-row p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.header-row button {
+  background-color: #ffffff;
+  border: 3px solid;
+  border-color: #89c5a8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header-row button:hover {
+  background-color: #89c5a8;
+}
+
+
 
 h5{
   margin-top: 7px;
 }
 
-h6 {
-  margin-top: 50px;
-}
+
+
 /* Fokus-Stil für bessere Sichtbarkeit */
 button:focus, input:focus, select:focus, textarea:focus {
   outline: 3px solid #295338
@@ -234,7 +160,7 @@ button:focus, input:focus, select:focus, textarea:focus {
 
 .place {
   margin-bottom: 10px;
-  border: 2px solid #72a490;
+  border: 2px solid #89c5a8;
   padding: 10px;
 }
 
@@ -295,7 +221,7 @@ button:focus, input:focus, select:focus, textarea:focus {
 #comment-line {
   border: none; /* Entfernt die Standard-Rahmenlinie */
   height: 3px; /* Höhe der Linie */
-  background-color: #295338; /* Hintergrundfarbe der Linie */
+  background-color: #89c5a8; /* Hintergrundfarbe der Linie */
   margin-top: 40px; /* Abstand oben und unten */
 }
 
