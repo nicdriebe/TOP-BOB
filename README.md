@@ -111,7 +111,8 @@ Menschen, die Screenreader verwenden, verlassen sich auf den Seitentitel, um den
 Die Web Content Accessibility Guidelines (WCAG) empfehlen, dass interaktive Elemente eine Mindestgröße von 44px x 44px haben. Dies gewährleistet, dass alle Benutzer, unabhängig von ihren physischen Fähigkeiten oder dem Gerät, die Elemente problemlos erreichen können.
 
  - die Mindestgröße 44px x 44px ist für alle interaktien Elemente eingehalten worden, insbesondere auch bei der Bewertung einzelner Orte durch das Anklicken von Sternen:
- ![Sternebewertung](images/sternebewertung.png)
+
+ <img src="images/sternebewertung.png" alt="Sternebewertung" width="200"/>
 
 #### **3.3.3 Error Suggestion**  
 
