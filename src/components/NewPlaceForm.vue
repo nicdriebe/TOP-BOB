@@ -41,6 +41,19 @@ const addRating = (stars) => {
   newPlace.value.stars = stars;
 };
 
+// Handling arrow keys and enter/space for star rating
+const handleStarKeydown = (event, star) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    newPlace.value.stars = star;  // Select star on Enter/Space
+  } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+    // Move to the next star with arrow keys
+    newPlace.value.stars = Math.min(newPlace.value.stars + 1, 5);
+  } else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+    // Move to the previous star with arrow keys
+    newPlace.value.stars = Math.max(newPlace.value.stars - 1, 1);
+  }
+};
+
 const clearError = () => {
   errorMessage.value = '';
 };
@@ -108,11 +121,22 @@ const clearError = () => {
           <div class="form-row align-center">
           <div class="form-group stars-group">
             <label for="stars"><strong>Sternebewertung:</strong></label>
-            <div class="star-rating">
-              <div class="stars">
-                <span v-for="star in 5" :key="star" class="star" @click="addRating(star)" :class="{ filled: star <= newPlace.stars }">★</span>
-              </div>
+            <div class="star-rating" role="radiogroup" aria-label="Sternebewertung">
+            <div class="stars">
+              <span
+                v-for="star in 5"
+                :key="star"
+                class="star"
+                tabindex="0"
+                role="radio"
+                :aria-checked="star === newPlace.stars"
+                aria-label="Bewertung {{ star }} Sterne"
+                @click="addRating(star)"
+                @keydown="handleStarKeydown($event, star)"
+                :class="{ filled: star <= newPlace.stars }"
+              >★</span>
             </div>
+          </div>
           </div>
   
             <!-- Button rechtsbündig -->
@@ -229,6 +253,21 @@ textarea:focus {
 
 .star.filled {
   color: #295338; /* Gefüllte Sterne */
+}
+
+/* Sterne größer und barrierefrei mit Fokusbereich */
+.stars .star {
+  font-size: 36px; /* Größe der Sterne */
+  cursor: pointer;
+  display: inline-block;
+  width: 44px;
+  height: 44px; /* Mindestgröße für Klickfläche (44x44 px) */
+  line-height: 44px; /* Vertikale Ausrichtung des Sterns */
+  text-align: center;
+}
+
+.stars .star:focus {
+  outline: 3px solid #295338; /* Fokusrahmen für Barrierefreiheit */
 }
 
 
