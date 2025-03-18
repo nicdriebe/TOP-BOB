@@ -140,7 +140,7 @@ folgenden Software-Komponenten müssen vorab installiert werden:
 
 1. Repository clonen
 ```sh
-git clone https://gitlab.rz.htw-berlin.de/Nicole.Driebe/barriere-check-berlin.git
+git clone https://github.com/nicdriebe/TOP-BOB.git
 ```
 2. zum Projektverzeichnis wechseln:
 ```sh
